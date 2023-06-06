@@ -8,6 +8,8 @@ Data from Common Crawl comes in .WARC, .WET, and .WAT formats, as described here
 
 **This repository specifically focuses on converting common crawl plaintext to a usable dataset format.**
 
+** PLEASE NOTE THAT THE REPOSITORY IS IN ACTIVE DEVELOPMENT AS A SIDE PROJECT, development is slow **
+
 # Install
 
 # Usage
