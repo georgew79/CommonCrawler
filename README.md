@@ -10,6 +10,16 @@ Data from Common Crawl comes in .WARC, .WET, and .WAT formats, as described here
 
 ** PLEASE NOTE THAT THE REPOSITORY IS IN ACTIVE DEVELOPMENT AS A SIDE PROJECT, development is slow **
 
+## Planned Improvements
+
+- [ ] Clean up the parameters, allow easy access to all depth parameters from the top level.
+- [ ] Randomized index selection, filter by language.
+- [ ] Add automatic filtering of headers, extra code details captured by the crawler.
+- [ ] Improve readme / docs
+- [ ] Improve crawl_example notebook
+- [ ] Add grammar based filtering for 'sensical' outputs. This is useful for LLM training.
+- [ ] Add text saving
+
 # Install
 
 # Usage

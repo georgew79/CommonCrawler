@@ -13,7 +13,7 @@ import shutil
 import os
 
 from tqdm import tqdm
-from .text_utils import clean_text
+from .text_utils import process_wet
 
 class ResponseException(Exception):
     ''' Raised when there is some issue in the response.'''
@@ -78,18 +78,10 @@ def download_wet_file(path:str, standard_encoding:str ='utf-8', error_handling:s
     download_file(path=path, save_file_path=save_file_path, unzipped_path=unzipped_path, should_print=should_print)
 
     # Written to disk, now get raw text.
-    text = ""
-    try: 
-        with warc.open(unzipped_path) as f:
-            for i, record in enumerate(tqdm(f)):
-                text += clean_text(record.payload.read().decode(standard_encoding, error_handling))
-    except KeyboardInterrupt:
-        if not should_capture:
-            raise KeyboardInterrupt()
+    text = process_wet(unzipped_path, standard_encoding=standard_encoding, error_handling=error_handling, 
+                        should_capture=should_capture, should_split=should_split)
     
-    if should_split:
-        return text.split('\n')
-    return text
+    return text 
 
 def pull_from_paths(index_path: str, save_path: str, should_print=False):
     '''
